@@ -109,7 +109,8 @@
   const map = L.map("map").setView([50.85, 4.35], 8);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom:19,
-    attribution:"&copy; OpenStreetMap contributors"
+    attribution:"&copy; OpenStreetMap contributors",
+    referrerPolicy: 'strict-origin-when-cross-origin'
   }).addTo(map);
 
   const drawn = new L.FeatureGroup().addTo(map);
