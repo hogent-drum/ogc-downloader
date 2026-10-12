@@ -28,3 +28,8 @@ De bestaande v11-logica voor WCS `multipart/related` blijft behouden: het binair
 ## v13 - Leaflet tile placement
 
 Added local critical Leaflet positioning CSS and deferred `invalidateSize()` handling. This prevents tiles from being laid out as normal document images when the CDN stylesheet is delayed/overridden and prevents tile-grid recalculation during an unfinished CSS layout pass.
+
+## v14 browser fixes
+- Corrected Leaflet 1.9.4 CSS SHA-256 SRI digest.
+- Removed invalid IPv6 loopback CSP source.
+- Leaflet Draw still loads from CDN; verify it is reachable and not blocked by browser/network policies.
