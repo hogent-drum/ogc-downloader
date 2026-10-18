@@ -1,72 +1,31 @@
-:root {
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #17212b;
-    background: #f5f7f9;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    flex: 0 0 auto;
-    padding: 18px 22px;
-    background: #111820;
-    color: #fff;
-}
-
-header h1 {
-    margin: 0 0 4px;
-    font-size: 22px;
-}
-
-header p {
-    margin: 0;
-    opacity: .82;
-    font-size: 13px;
-}
-
 main {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: grid;
-    grid-template-columns: minmax(380px, 470px) 1fr;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(380px, 470px) 1fr;
 }
 
 aside {
-    min-height: 0;
-    padding: 18px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-right: 1px solid #dfe4e8;
-    background: #fff;
+  min-height: 0;
+  padding: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid #dfe4e8;
+  background: #fff;
 }
 
 .map-wrap {
-    position: relative;
-    min-height: 0;
-    height: 100%;
-    overflow: hidden;
+  position: relative;
+  min-height: 450px;
+  height: 100%;
+  overflow: hidden;
 }
 
 #map {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /*
@@ -77,8 +36,8 @@ aside {
  * overridden by site-wide CSS.
  */
 #map.leaflet-container {
-    position: absolute;
-    overflow: hidden;
+  position: absolute;
+  overflow: hidden;
 }
 
 #map .leaflet-pane,
@@ -91,183 +50,307 @@ aside {
 #map .leaflet-zoom-box,
 #map .leaflet-image-layer,
 #map .leaflet-layer {
-    position: absolute;
-    left: 0;
-    top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 #map .leaflet-tile {
-    max-width: none !important;
-    max-height: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: 0 !important;
-    box-sizing: content-box !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-sizing: content-box !important;
 }
 
 #map .leaflet-marker-icon,
 #map .leaflet-marker-shadow {
-    display: block;
+  display: block;
 }
 
 #map .leaflet-tile-container {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 fieldset {
-    border: 1px solid #dce2e6;
-    border-radius: 8px;
-    margin: 0 0 14px;
-    padding: 12px;
+  border: 1px solid #dce2e6;
+  border-radius: 8px;
+  margin: 0 0 14px;
+  padding: 12px;
 }
 
 legend {
-    font-weight: 700;
-    padding: 0 6px;
+  font-weight: 700;
+  padding: 0 6px;
 }
 
 label {
-    display: block;
-    font-size: 12px;
-    font-weight: 650;
-    margin: 9px 0 4px;
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  margin: 9px 0 4px;
 }
 
 input,
 select,
 button,
 textarea {
-    width: 100%;
-    padding: 9px 10px;
-    border: 1px solid #cbd3d9;
-    border-radius: 6px;
-    background: #fff;
-    font: inherit;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #cbd3d9;
+  border-radius: 6px;
+  background: #fff;
+  font: inherit;
 }
 
-input[type=color] {
-    padding: 2px;
-    height: 38px;
+input[type="color"] {
+  padding: 2px;
+  height: 38px;
 }
 
-input[type=checkbox] {
-    width: auto;
+input[type="checkbox"] {
+  width: auto;
 }
 
 button {
-    cursor: pointer;
-    font-weight: 700;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 button.primary {
-    background: #111820;
-    color: #fff;
-    border-color: #111820;
+  background: #111820;
+  color: #fff;
+  border-color: #111820;
 }
 
 button.secondary {
-    background: #eef2f4;
+  background: #eef2f4;
 }
 
 button:disabled {
-    opacity: .5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+.mrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .status {
-    padding: 9px 10px;
-    border-radius: 6px;
-    background: #eef2f4;
-    font-size: 12px;
-    margin-top: 8px;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
+  padding: 9px 10px;
+  border-radius: 6px;
+  background: #eef2f4;
+  font-size: 12px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .status.error {
-    background: #ffe9e7;
-    color: #8a1f17;
+  background: #ffe9e7;
+  color: #8a1f17;
 }
 
 .status.ok {
-    background: #e9f7ed;
-    color: #1d6632;
+  background: #e9f7ed;
+  color: #1d6632;
 }
 
 .hint {
-    font-size: 11px;
-    line-height: 1.45;
-    color: #5b6872;
-    margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #5b6872;
+  margin-top: 5px;
 }
 
 .mono {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 11px;
-    word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  word-break: break-all;
 }
 
 .inline {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .inline label {
-    margin: 0;
-    font-weight: 500;
+  margin: 0;
+  font-weight: 500;
 }
 
 #symPoint,
 #symLine,
 #symPolygon {
-    display: none;
+  display: none;
 }
 
 .fields {
-    max-height: 120px;
-    overflow: auto;
-    border: 1px solid #e2e6e9;
-    border-radius: 6px;
-    padding: 7px;
-    font-size: 11px;
-    margin-top: 7px;
+  max-height: 120px;
+  overflow: auto;
+  border: 1px solid #e2e6e9;
+  border-radius: 6px;
+  padding: 7px;
+  font-size: 11px;
+  margin-top: 7px;
 }
 
 .fields span {
-    display: inline-block;
-    padding: 2px 5px;
-    margin: 2px;
-    background: #f1f3f5;
-    border-radius: 4px;
+  display: inline-block;
+  padding: 2px 5px;
+  margin: 2px;
+  background: #f1f3f5;
+  border-radius: 4px;
 }
 
-@media (max-width:900px) {
-    body {
-        height: auto;
-        min-height: 100%;
-        overflow: auto;
-        display: block;
-    }
+@media (max-width: 900px) {
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow: auto;
+    display: block;
+  }
 
-    main {
-        display: block;
-        min-height: 0;
-    }
+  main {
+    display: block;
+    min-height: 0;
+  }
 
-    aside {
-        overflow: visible;
-        border-right: 0;
-    }
+  aside {
+    overflow: visible;
+    border-right: 0;
+  }
 
-    .map-wrap {
-        height: 60vh;
-        min-height: 500px;
-    }
+  .map-wrap {
+    height: 60vh;
+    min-height: 500px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  fieldset[id].fieldset-observed {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
+  }
+  fieldset[id].fieldset-observed.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* OGC settings: independent TOC column beside the settings. */
+.ogc-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  width: 100%;
+  margin: 24px 0 40px;
+}
+
+.ogc-sidebar {
+  position: relative;
+  align-self: stretch;
+  min-width: 0;
+  overflow: visible;
+  padding: 0;
+  border-right: 0;
+  background: transparent;
+}
+
+/* Vertical tracking is managed by JavaScript using translateY().
+   Do not use position: sticky here. */
+#fieldset-toc {
+  position: relative;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  padding: 18px 14px;
+  background: #fff;
+  border: 1px solid #e1e5eb;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+  will-change: transform;
+}
+
+.fieldset-toc-heading {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #253858;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e1e5eb;
+}
+
+#fieldset-toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#fieldset-toc-list .toc-link {
+  display: block;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #526174;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  border-radius: 5px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#fieldset-toc-list .toc-link:hover {
+  background: #eef2f4;
+  color: #000;
+}
+
+#fieldset-toc-list .toc-link.active {
+  background: #eef2f4;
+  color: #000;
+  border-left-color: #000;
+  font-weight: 600;
+}
+
+.ogc-settings {
+  min-width: 0;
+  width: 100%;
+}
+
+.ogc-settings fieldset {
+  max-width: 100%;
+  min-width: 0;
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .ogc-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  #fieldset-toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    will-change: auto;
+  }
+
+  #fieldset-toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 6px;
+  }
 }

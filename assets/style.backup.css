@@ -1,0 +1,273 @@
+:root {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #17212b;
+    background: #f5f7f9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex: 0 0 auto;
+    padding: 18px 22px;
+    background: #111820;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+header p {
+    margin: 0;
+    opacity: .82;
+    font-size: 13px;
+}
+
+main {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(380px, 470px) 1fr;
+}
+
+aside {
+    min-height: 0;
+    padding: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #dfe4e8;
+    background: #fff;
+}
+
+.map-wrap {
+    position: relative;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * Leaflet hardening/fallback.
+ * The external Leaflet stylesheet normally provides these rules, but tile
+ * placement depends on them. Keeping the critical positioning locally means
+ * the map still renders correctly if a CDN stylesheet is delayed, blocked or
+ * overridden by site-wide CSS.
+ */
+#map.leaflet-container {
+    position: absolute;
+    overflow: hidden;
+}
+
+#map .leaflet-pane,
+#map .leaflet-tile,
+#map .leaflet-marker-icon,
+#map .leaflet-marker-shadow,
+#map .leaflet-tile-container,
+#map .leaflet-pane > svg,
+#map .leaflet-pane > canvas,
+#map .leaflet-zoom-box,
+#map .leaflet-image-layer,
+#map .leaflet-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#map .leaflet-tile {
+    max-width: none !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    box-sizing: content-box !important;
+}
+
+#map .leaflet-marker-icon,
+#map .leaflet-marker-shadow {
+    display: block;
+}
+
+#map .leaflet-tile-container {
+    pointer-events: none;
+}
+
+fieldset {
+    border: 1px solid #dce2e6;
+    border-radius: 8px;
+    margin: 0 0 14px;
+    padding: 12px;
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 6px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 650;
+    margin: 9px 0 4px;
+}
+
+input,
+select,
+button,
+textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #cbd3d9;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+}
+
+input[type=color] {
+    padding: 2px;
+    height: 38px;
+}
+
+input[type=checkbox] {
+    width: auto;
+}
+
+button {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button.primary {
+    background: #111820;
+    color: #fff;
+    border-color: #111820;
+}
+
+button.secondary {
+    background: #eef2f4;
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.status {
+    padding: 9px 10px;
+    border-radius: 6px;
+    background: #eef2f4;
+    font-size: 12px;
+    margin-top: 8px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.status.error {
+    background: #ffe9e7;
+    color: #8a1f17;
+}
+
+.status.ok {
+    background: #e9f7ed;
+    color: #1d6632;
+}
+
+.hint {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #5b6872;
+    margin-top: 5px;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    word-break: break-all;
+}
+
+.inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.inline label {
+    margin: 0;
+    font-weight: 500;
+}
+
+#symPoint,
+#symLine,
+#symPolygon {
+    display: none;
+}
+
+.fields {
+    max-height: 120px;
+    overflow: auto;
+    border: 1px solid #e2e6e9;
+    border-radius: 6px;
+    padding: 7px;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.fields span {
+    display: inline-block;
+    padding: 2px 5px;
+    margin: 2px;
+    background: #f1f3f5;
+    border-radius: 4px;
+}
+
+@media (max-width:900px) {
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow: auto;
+        display: block;
+    }
+
+    main {
+        display: block;
+        min-height: 0;
+    }
+
+    aside {
+        overflow: visible;
+        border-right: 0;
+    }
+
+    .map-wrap {
+        height: 60vh;
+        min-height: 500px;
+    }
+}
